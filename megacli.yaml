@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: megacli-pod
+spec:
+  containers:
+  - name: megacli-container
+    image: iqsquad/megacli
+    command: ["/bin/bash", "-c", "sleep infinity"]
+    securityContext:
+      privileged: true
+  restartPolicy: Never
+  nodeSelector:
+    kubernetes.io/hostname: master0.ocp4.online
